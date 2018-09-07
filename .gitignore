@@ -10,6 +10,11 @@ media
 venv
 virtualenv
 
+# pytest & coverage
+.pytest_cache/
+htmlcov/
+.coverage
+
 # Editors
 .vscode
 .idea 

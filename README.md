@@ -25,3 +25,5 @@ $ workon tried_and_tested
 Try it!
 
 $ py.test
+
+Create ".coveragerc" and try it
