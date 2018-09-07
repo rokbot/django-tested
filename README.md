@@ -27,3 +27,10 @@ Try it!
 $ py.test
 
 Create ".coveragerc" and try it
+
+We are ready to test!
+
+py.test will find all files called "test_*.py"
+
+It will execute all functions called "test_*()" on all class
+that start with "Test*"
