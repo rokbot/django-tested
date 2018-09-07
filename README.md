@@ -21,3 +21,7 @@ $ pip install git+git://github.com/mverteuil/pytest-ipdb.git
 $ pip install pytest-cov
 $ deactivate
 $ workon tried_and_tested
+
+Try it!
+
+$ py.test
