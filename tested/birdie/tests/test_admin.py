@@ -1,10 +1,10 @@
 import pytest
 from django.contrib.admin.sites import AdminSite
 from mixer.backend.django import mixer
-pytestmark = pytest.mark.django_db
-
 from .. import admin
 from .. import models
+pytestmark = pytest.mark.django_db
+
 
 class TestPostAdmin:
     def test_excerpt(self):
