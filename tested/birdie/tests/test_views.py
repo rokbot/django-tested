@@ -28,3 +28,20 @@ class TestAdminView:
         req.user = user
         resp = views.AdminView.as_view()(req)
         assert resp.status_code == 200, 'Should be callabe by superuser'
+
+
+class TestPostUpdateView:
+    def test_get(self):
+        post = mixer.blend('birdie.Post')
+        req = RequestFactory().get('/')
+        resp = views.PostUpdateView.as_view()(req, pk=post.pk)
+        assert resp.status_code == 200, 'Should be callabe by anyone'
+
+    def test_post(self):
+        post = mixer.blend('birdie.Post')
+        data = {'body': 'New Body Text!'}
+        req = RequestFactory().post('/', data=data)
+        resp = views.PostUpdateView.as_view()(req, pk=post.pk)
+        assert resp.status_code == 302, 'Should redirect to succes view'
+        post.refresh_from_db()
+        assert post.body == 'New Body Text!', 'Should update the post'
