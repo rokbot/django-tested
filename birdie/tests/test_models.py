@@ -12,5 +12,5 @@ class TestPost:
         obj = mixer.blend('birdie.Post', body="Hello World!")
         result = obj.get_excerpt(5)
         expected = "Hello"
-        assert result == expected , (
+        assert result == expected, (
             'Should return the given number of characters')
