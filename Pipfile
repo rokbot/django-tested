@@ -10,10 +10,11 @@ mock = "*"
 mixer = "*"
 pylint-django = "*"
 autopep8 = "*"
+pytest = "*"
 
 [packages]
 django = "*"
 stripe = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.10"
