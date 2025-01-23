@@ -58,8 +58,8 @@ class TestPostUpdateView:
         req.user = user
         with pytest.raises(Http404):
             views.PostUpdateView.as_view()(req, pk=post.pk)
-        
-     
+
+
 class TestPaymentView:
     @patch('birdie.views.stripe')
     def test_payment(self, mock_stripe):
@@ -67,5 +67,4 @@ class TestPaymentView:
         req = RequestFactory().post('/', data={'token': '123'})
         resp = views.PaymentView.as_view()(req)
         assert resp.status_code == 302, 'Should redirect to success url'
-        assert len(mail.outbox) == 1, 'Should send an email'
-        
+        assert len(mail.outbox) == 1, 'Should send an email'    # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#email-services
