@@ -3,37 +3,54 @@
 ## PROJECT SETUP
 
 Let's create a new Django project
+```bash
+# from scratch
+mkdir django-tested
+# or just
+git clone https://github.com/rokbot/django-tested
+
+cd django-tested
+```
+Create virtual env and activate
 
 ```bash
-$ mkvirtualenv tried_and_tested
-$ pip install Django
-$ django-admin.py startproject tested
-```
+python -m venv .venv && source .venv/bin/activate
 
+```
+Install project dependencies
+
+```bash
+# optional (from scratch)
+pip install Django
+django-admin startproject tested .
+
+pip install -r requirements.txt
+```
 Add a "test_settings.py" file
 ```bash
-$ cd tested/tested
-$ touch test_settings.py
+touch ./tested/test_settings.py # if not exists
 ```
 Install pytest & plugins and create "pytest.ini"
 
 ```bash
-$ pip install pytest
-$ pip install pytest-django
+pip install pytest-django
+# pip install pytest
+pip install mixer
+pip install pytest-cov
+
+# required error reading pytest.ini file
+deactivate && source .venv/bin/activate
 $ pip install git+git://github.com/mverteuil/pytest-ipdb.git
-$ pip install pytest-cov
-$ deactivate
-$ workon tried_and_tested
 ```
 ### Try it!
 ```bash
-$ py.test
+pytest
 ```
 Create ".coveragerc" and try it
 
 We are ready to test!
 
-py.test will find all files called "test_*.py"
+pytest will find all files called "test_*.py"
 
 It will execute all functions called "test_*()" on all class
 that start with "Test*"
