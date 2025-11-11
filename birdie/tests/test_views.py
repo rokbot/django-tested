@@ -5,7 +5,7 @@ from django.http import Http404
 from django.core import mail
 from django.contrib.auth.models import AnonymousUser
 from django.test import RequestFactory
-from mock import patch
+from unittest.mock import patch
 from mixer.backend.django import mixer
 from .. import views
 pytestmark = pytest.mark.django_db
